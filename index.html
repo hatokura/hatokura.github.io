@@ -292,6 +292,19 @@ footer{margin-top:0}
   .float-nav a{width:40px;height:40px}
 }
 
+
+.atlas-initial-note{
+  margin:0 0 14px;
+  padding:10px 13px;
+  border:1px solid rgba(118,208,164,.22);
+  border-radius:10px;
+  background:rgba(118,208,164,.035);
+  color:#9acdb7;
+  font-size:10px;
+  letter-spacing:.03em;
+}
+#traitAtlasList{opacity:1!important;transform:none!important}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "優性は優れているという意味ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。遺伝学の優性は、異なる対立遺伝子を持つときにどの表現型が現れるかという関係を表し、価値・能力・健康の優劣を意味しません。"}}, {"@type": "Question", "name": "優性形質は必ず多数派ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。優性か劣性かと、集団内での対立遺伝子頻度は別の概念です。"}}, {"@type": "Question", "name": "耳たぶや舌巻きは単純な優性形質ですか？", "acceptedAnswer": {"@type": "Answer", "text": "古典的教材ではそう紹介されることがありますが、現在では人間の多くの形態形質は単一遺伝子の完全優性だけで説明するには単純化しすぎと考えられます。"}}, {"@type": "Question", "name": "常染色体優性疾患では子に50%で伝わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "親が病的バリアントを1コピー持つ典型的なヘテロ接合体で、もう一方の親がそのバリアントを持たない単純モデルでは、各妊娠で50%の確率で受け継ぎます。浸透率や新生バリアントなどにより臨床像は複雑です。"}}]}</script>
 </head>
@@ -553,14 +566,15 @@ footer{margin-top:0}
 <section class="section" id="traitAtlas">
  <div class="wrap">
   <div class="section-head reveal"><div class="secnum">09 / TRAIT ATLAS</div><div><h2>優性形質一覧・人間形質アトラス 109</h2><p class="intro">「優性形質一覧」として検索されやすい項目を最大限まで増量しました。確立した遺伝例、比較的単純な例、複雑形質、古典的俗説を分けて掲載し、昔の教材表現をそのまま事実扱いしない構成です。</p></div></div>
-  <div class="trait-tools reveal"><input id="traitSearch" placeholder="形質を検索：耳たぶ、ABO、身長、えくぼ、疾患名…"><select id="traitFilter"><option value="all" selected>すべて</option><option value="est">比較的確立</option><option value="complex">複雑・単純化注意</option><option value="myth">単純優性扱いは不適切</option></select><button class="mini" onclick="resetTraits()">リセット</button></div><div class="callout reveal" style="margin-bottom:14px"><b>収録数：</b><span id="traitCount">全109件を表示中</span><span style="margin-top:6px">ページを開いた時点で109項目をすべて表示しています。検索・分類フィルターを使うと必要な項目だけに絞り込めます。</span></div>
+  <div class="trait-tools reveal"><input id="traitSearch" placeholder="形質を検索：耳たぶ、ABO、身長、えくぼ、疾患名…"><select id="traitFilter"><option value="all" selected>すべて（109項目すべて表示）</option><option value="est">比較的確立</option><option value="complex">複雑・単純化注意</option><option value="myth">単純優性扱いは不適切</option></select><button class="mini" onclick="resetTraits()">リセット</button></div><div class="callout reveal" style="margin-bottom:14px"><b>収録数：</b><span id="traitCount">全109件を表示中</span><span style="margin-top:6px">ページを開いた時点で109項目をすべて表示しています。検索・分類フィルターを使うと必要な項目だけに絞り込めます。</span></div>
   
+<div class="atlas-initial-note">初期状態：優性形質アトラス109項目をすべて表示</div>
 <div class="atlas-legend reveal" aria-label="分類凡例">
   <div><span class="legend-dot est"></span><b>比較的確立</b><small>遺伝形式や関連が比較的明確</small></div>
   <div><span class="legend-dot complex"></span><b>複雑・注意</b><small>多遺伝子・環境・浸透率などが関与</small></div>
   <div><span class="legend-dot myth"></span><b>単純優性は不適切</b><small>古典的教材・俗説の単純化に注意</small></div>
 </div>
-<div class="trait-list reveal" id="traitAtlasList"></div>
+<div class="trait-list" id="traitAtlasList"></div>
  </div>
 </section>
 
@@ -924,7 +938,13 @@ footer{margin-top:0}
    if(!box.children.length)box.innerHTML='<div class="empty">該当する形質がありません。</div>'
  }
  window.resetTraits=()=>{$('#traitSearch').value='';$('#traitFilter').value='all';renderTraitAtlas()};
- setTimeout(()=>{if($('#traitSearch')){$('#traitSearch').value='';$('#traitFilter').value='all';$('#traitSearch').oninput=renderTraitAtlas;$('#traitFilter').onchange=renderTraitAtlas;renderTraitAtlas()}},0);
+ if($('#traitSearch')){
+   $('#traitSearch').value='';
+   $('#traitFilter').value='all';
+   $('#traitSearch').oninput=renderTraitAtlas;
+   $('#traitFilter').onchange=renderTraitAtlas;
+   renderTraitAtlas();
+ }
 
  // Hardy-Weinberg educational calculator
  window.calcHW=()=>{
