@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#07111d">
 <meta name="description" content="鳩倉総統が治める架空国家HATOKURAの総統府公式ポータル。優性形質、遺伝学、医学遺伝学、人間形質の俗説検証、高機能掲示板を統合。">
 <title>HATOKURA｜鳩倉総統府公式 優性形質・遺伝学 超大百科 OMEGA</title>
@@ -109,7 +111,7 @@ footer .footgrid{gap:42px}
 .toc small{color:#7a8fa2;font-size:9px;letter-spacing:.12em}.toc b{color:#e6d18f;font-size:15px}.toc span{color:#8396a8;font-size:10px}
 .mega-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:22px}.mega-stat{border:1px solid var(--line);background:#091725;padding:15px}.mega-stat strong{display:block;color:#ead48b;font-size:22px}.mega-stat span{font-size:9px;color:#758a9d}
 .trait-tools{display:grid;grid-template-columns:1fr auto auto;gap:8px;margin-bottom:14px}.trait-tools input,.trait-tools select{background:#06101b;border:1px solid #26394d;color:#e8eef5;padding:10px}
-.trait-list{display:grid;gap:8px}.trait-row{border:1px solid var(--line);background:#091725;padding:15px;display:grid;grid-template-columns:1.15fr .7fr 1.6fr .6fr;gap:14px;align-items:start}
+.trait-list{display:grid;gap:12px}.trait-row{border:1px solid var(--line);background:#091725;padding:15px;display:grid;grid-template-columns:1.15fr .7fr 1.6fr .6fr;gap:14px;align-items:start}
 .trait-row h4{margin:0;color:#e2cd89}.trait-row p{margin:3px 0 0;color:#8295a7;font-size:10px}.trait-row .gene{color:#81bfd7;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px}
 .flag{display:inline-block;padding:3px 7px;border:1px solid var(--line);font-size:9px;white-space:nowrap}.flag.est{color:#7fd2a6;border-color:rgba(118,208,164,.3)}.flag.complex{color:#ddb667;border-color:rgba(221,169,94,.3)}.flag.myth{color:#d88888;border-color:rgba(215,125,125,.3)}
 .family-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.pedigree-card{border:1px solid var(--line);background:#091725;padding:19px}.pedigree-card h3{margin:0 0 8px;color:#e2cd89}.pedigree-card ul{margin:0;padding-left:18px;color:#879aac;font-size:11px}.pedigree-card li{margin:6px 0}
@@ -142,10 +144,159 @@ footer .footgrid{gap:42px}
 .statement{border-left:2px solid var(--gold);padding:20px 22px;background:rgba(212,180,92,.04);font-family:"Yu Mincho",serif;color:#c9d2db}
 @media(max-width:900px){.state-hero{grid-template-columns:1fr}.state-facts{grid-template-columns:1fr}}
 
+
+/* ===== FINAL POLISH ===== */
+:root{
+  --max:1340px;
+  --content:860px;
+  --radius-sm:10px;
+  --radius-md:14px;
+  --radius-lg:20px;
+}
+html{scroll-padding-top:112px}
+section[id]{scroll-margin-top:112px}
+body{letter-spacing:.01em}
+.skip-link{
+  position:fixed;left:16px;top:-70px;z-index:10000;
+  padding:10px 14px;background:#f0d992;color:#101820;
+  border-radius:8px;font-weight:800;transition:.2s;
+}
+.skip-link:focus{top:16px}
+a,button,input,textarea,select{outline:none}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  box-shadow:0 0 0 3px rgba(118,191,206,.32);
+  border-color:#76bfce!important;
+}
+.wrap{max-width:var(--max)}
+header{box-shadow:0 10px 30px rgba(0,0,0,.12)}
+nav a{border-radius:7px 7px 0 0;transition:.18s}
+nav a.active{color:#f0d992;background:rgba(212,180,92,.08);border-color:#d4b45c}
+.hero{min-height:780px}
+.hero-grid{max-width:1220px;margin:auto}
+.hero h1{max-width:880px;text-wrap:balance}
+.lead{line-height:1.8}
+.sub{line-height:1.9}
+.hero-card,.card,.side,.labbox,.term,.source,.thread,.sidecard,.state-panel,.state-fact,
+.toc a,.trait-row,.pedigree-card,.calc-panel,.faq-item,.profile,.composer{
+  border-radius:var(--radius-md);
+}
+.hero-card{border-radius:var(--radius-lg)}
+.card,.side,.labbox,.term,.source,.trait-row,.pedigree-card,.calc-panel,.faq-item{
+  box-shadow:0 10px 28px rgba(0,0,0,.08);
+}
+.card,.side,.labbox,.term,.source,.trait-row,.pedigree-card,.calc-panel,.faq-item,.toc a{
+  transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.card:hover,.term:hover,.source:hover,.pedigree-card:hover,.toc a:hover{
+  transform:translateY(-2px);
+  border-color:rgba(212,180,92,.26);
+  box-shadow:0 16px 38px rgba(0,0,0,.14);
+}
+.section:nth-of-type(even){background:linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,.003))}
+.section-head{max-width:1110px}
+.section h2{text-wrap:balance}
+.intro{line-height:1.95}
+.section p{line-height:1.9}
+.reading-guide{
+  margin-top:28px;margin-bottom:12px;padding:18px 22px;
+  border:1px solid rgba(212,180,92,.18);border-radius:var(--radius-md);
+  background:linear-gradient(90deg,rgba(212,180,92,.05),rgba(63,117,173,.035));
+  display:flex;align-items:center;justify-content:space-between;gap:22px;
+}
+.guide-copy{display:grid;gap:3px;max-width:650px}.guide-kicker{color:#b89a4b;font-size:9px;letter-spacing:.15em}.guide-copy strong{color:#d8e1e8;font-size:12px}
+.guide-links{display:flex;gap:6px;flex-wrap:wrap}.guide-links a{padding:7px 9px;border:1px solid var(--line);border-radius:8px;color:#c9b773;font-size:10px;background:#091725}.guide-links a:hover{background:#102238}
+.quickgrid{border-radius:var(--radius-md);overflow:hidden}
+.quickcell{min-height:108px;display:flex;flex-direction:column;justify-content:center}
+.tablewrap{border-radius:var(--radius-md);box-shadow:0 14px 36px rgba(0,0,0,.1)}
+th{z-index:2}
+.atlas-legend{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px;
+}
+.atlas-legend>div{
+  border:1px solid var(--line);border-radius:12px;background:#091725;
+  padding:13px;display:grid;grid-template-columns:auto 1fr;gap:2px 9px;align-items:center;
+}
+.atlas-legend b{font-size:11px;color:#dce5ec}
+.atlas-legend small{grid-column:2;color:#74889b;font-size:9px}
+.legend-dot{width:9px;height:9px;border-radius:50%}
+.legend-dot.est{background:var(--green)}.legend-dot.complex{background:var(--orange)}.legend-dot.myth{background:var(--red)}
+.trait-list{gap:14px}
+.trait-row{
+  position:relative;padding:19px 20px 19px 24px;
+  background:linear-gradient(180deg,#0a1929,#091521);
+}
+.trait-row:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:14px 0 0 14px;background:#667b8e;
+}
+.trait-row[data-level="est"]:before{background:var(--green)}
+.trait-row[data-level="complex"]:before{background:var(--orange)}
+.trait-row[data-level="myth"]:before{background:var(--red)}
+.trait-index{
+  display:inline-grid;place-items:center;min-width:34px;height:24px;margin-right:8px;
+  border:1px solid var(--line);border-radius:999px;color:#788da0;font-size:9px;
+}
+.trait-row h4{font-size:14px;line-height:1.55}
+.trait-row p{line-height:1.75}
+.flag{border-radius:999px}
+.glossary .term{min-height:150px}
+.faq-item button{font-weight:700}
+.faq-item .faq-body{line-height:1.85}
+.forum-local-note{
+  margin-bottom:14px;padding:14px 17px;border:1px solid rgba(118,191,206,.2);
+  background:rgba(118,191,206,.035);border-radius:12px;
+}
+.forum-local-note b{color:#88c9d7;font-size:11px}.forum-local-note span{display:block;margin-top:4px;color:#8094a6;font-size:10px}
+.forum-shell{border-radius:var(--radius-lg)}
+.fside,.fright{align-self:start}
+@media(min-width:1101px){
+  .fside,.fright{position:sticky;top:105px;max-height:calc(100vh - 120px);overflow:auto}
+}
+.thread{padding:20px;margin-bottom:14px}
+.thread h4{font-size:16px}
+.thread p{font-size:12px;line-height:1.85}
+.reply{padding:10px 0}
+.composer textarea{line-height:1.75}
+.float-nav{
+  position:fixed;right:18px;bottom:72px;z-index:42;
+  display:grid;gap:6px;
+}
+.float-nav a{
+  width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;border:1px solid rgba(212,180,92,.28);
+  background:rgba(7,17,29,.94);backdrop-filter:blur(10px);
+  color:#d7bf76;font-size:10px;box-shadow:0 10px 24px rgba(0,0,0,.2)
+}
+.float-nav a:hover{background:#102238}
+.totop{display:none!important}
+footer{margin-top:0}
+.legal{line-height:1.75}
+@media(max-width:1100px){
+  .reading-guide{align-items:flex-start;flex-direction:column}
+  .atlas-legend{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:92px}
+  section[id]{scroll-margin-top:92px}
+  .hero{min-height:auto}
+  .hero-grid{gap:34px}
+  .hero-card{padding:24px}
+  .reading-guide{margin-top:20px;padding:15px}
+  .guide-links{width:100%}.guide-links a{flex:1;text-align:center;min-width:90px}
+  .section{padding:82px 0}
+  .section-head{margin-bottom:32px}
+  .trait-row{padding:17px}
+  .trait-row h4{font-size:15px}
+  .trait-index{margin-bottom:6px}
+  .forum-head{align-items:flex-start;flex-direction:column}
+  .float-nav{right:12px;bottom:14px;grid-template-columns:repeat(3,40px)}
+  .float-nav a{width:40px;height:40px}
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "優性は優れているという意味ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。遺伝学の優性は、異なる対立遺伝子を持つときにどの表現型が現れるかという関係を表し、価値・能力・健康の優劣を意味しません。"}}, {"@type": "Question", "name": "優性形質は必ず多数派ですか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。優性か劣性かと、集団内での対立遺伝子頻度は別の概念です。"}}, {"@type": "Question", "name": "耳たぶや舌巻きは単純な優性形質ですか？", "acceptedAnswer": {"@type": "Answer", "text": "古典的教材ではそう紹介されることがありますが、現在では人間の多くの形態形質は単一遺伝子の完全優性だけで説明するには単純化しすぎと考えられます。"}}, {"@type": "Question", "name": "常染色体優性疾患では子に50%で伝わりますか？", "acceptedAnswer": {"@type": "Answer", "text": "親が病的バリアントを1コピー持つ典型的なヘテロ接合体で、もう一方の親がそのバリアントを持たない単純モデルでは、各妊娠で50%の確率で受け継ぎます。浸透率や新生バリアントなどにより臨床像は複雑です。"}}]}</script>
 </head>
 <body>
+<a class="skip-link" href="#mainContent">本文へ移動</a>
 <div id="progress"></div>
 <div class="utility"><div class="wrap"><span><b>HATOKURA 鳩倉総統府・国家遺伝学教育研究院</b>　OFFICIAL STATE KNOWLEDGE PORTAL</span><span>科学的正確性・教育・コミュニティ</span></div></div>
 
@@ -159,12 +310,12 @@ footer .footgrid{gap:42px}
 <path d="M96 57l17 5-17 5z" fill="#f1d98f"/>
 <path d="M37 80c-8 0-15 2-22 7 8-1 14 1 19 6 2-6 3-10 3-13z" fill="#c49f45"/>
 </svg></div><div><b>HATOKURA</b><small>鳩倉総統府公式・優性形質 遺伝学大百科</small></div></a>
-  <nav id="nav"><a href="#state">国家・総統府</a><a href="#basics">基礎</a><a href="#encyclopedia">優性百科</a><a href="#humanTraits">人間形質</a><a href="#medicalAtlas">医学例</a><a href="#lab">遺伝ラボ</a><a href="#forum">掲示板</a></nav>
+  <nav id="nav" aria-label="主要ナビゲーション"><a href="#state">国家・総統府</a><a href="#basics">基礎</a><a href="#encyclopedia">優性百科</a><a href="#humanTraits">人間形質</a><a href="#medicalAtlas">医学例</a><a href="#lab">遺伝ラボ</a><a href="#forum">掲示板</a></nav>
   <div style="display:flex;gap:6px"><button class="icon" id="searchBtn" title="知識検索">⌕</button><button class="icon" id="menu">☰</button></div>
  </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1"><div id="mainContent"></div>
 <section class="hero">
  <div class="wrap hero-grid">
   <div>
@@ -196,6 +347,19 @@ footer .footgrid{gap:42px}
   <div class="quickcell"><small>POLYGENIC</small><strong>多数遺伝子</strong><span>身長など</span></div>
   <div class="quickcell"><small>KEY RULE</small><strong>優性 ≠ 優秀</strong><span>価値判断ではない</span></div>
  </div>
+</div>
+<div class="wrap reading-guide" aria-label="サイトガイド">
+  <div class="guide-copy">
+    <span class="guide-kicker">START HERE</span>
+    <strong>初めての方は「基礎」→「優性形質一覧」→「人間形質」→「医学例」の順がおすすめです。</strong>
+  </div>
+  <div class="guide-links">
+    <a href="#basics">① 基礎</a>
+    <a href="#traitAtlas">② 109項目一覧</a>
+    <a href="#humanTraits">③ 人間形質</a>
+    <a href="#medicalAtlas">④ 医学例</a>
+    <a href="#forum">⑤ 掲示板</a>
+  </div>
 </div>
 
 
@@ -388,9 +552,15 @@ footer .footgrid{gap:42px}
 </section>
 <section class="section" id="traitAtlas">
  <div class="wrap">
-  <div class="section-head reveal"><div class="secnum">09 / TRAIT ATLAS</div><div><h2>優性形質一覧・人間形質アトラス MAX</h2><p class="intro">「優性形質一覧」として検索されやすい項目を最大限まで増量しました。確立した遺伝例、比較的単純な例、複雑形質、古典的俗説を分けて掲載し、昔の教材表現をそのまま事実扱いしない構成です。</p></div></div>
-  <div class="trait-tools reveal"><input id="traitSearch" placeholder="形質を検索：耳たぶ、ABO、身長、えくぼ、疾患名…"><select id="traitFilter"><option value="all">すべて</option><option value="est">比較的確立</option><option value="complex">複雑・単純化注意</option><option value="myth">単純優性扱いは不適切</option></select><button class="mini" onclick="resetTraits()">リセット</button></div><div class="callout reveal" style="margin-bottom:14px"><b>収録数：</b><span id="traitCount">0件を表示中</span></div>
-  <div class="trait-list reveal" id="traitAtlasList"></div>
+  <div class="section-head reveal"><div class="secnum">09 / TRAIT ATLAS</div><div><h2>優性形質一覧・人間形質アトラス 109</h2><p class="intro">「優性形質一覧」として検索されやすい項目を最大限まで増量しました。確立した遺伝例、比較的単純な例、複雑形質、古典的俗説を分けて掲載し、昔の教材表現をそのまま事実扱いしない構成です。</p></div></div>
+  <div class="trait-tools reveal"><input id="traitSearch" placeholder="形質を検索：耳たぶ、ABO、身長、えくぼ、疾患名…"><select id="traitFilter"><option value="all" selected>すべて</option><option value="est">比較的確立</option><option value="complex">複雑・単純化注意</option><option value="myth">単純優性扱いは不適切</option></select><button class="mini" onclick="resetTraits()">リセット</button></div><div class="callout reveal" style="margin-bottom:14px"><b>収録数：</b><span id="traitCount">全109件を表示中</span><span style="margin-top:6px">ページを開いた時点で109項目をすべて表示しています。検索・分類フィルターを使うと必要な項目だけに絞り込めます。</span></div>
+  
+<div class="atlas-legend reveal" aria-label="分類凡例">
+  <div><span class="legend-dot est"></span><b>比較的確立</b><small>遺伝形式や関連が比較的明確</small></div>
+  <div><span class="legend-dot complex"></span><b>複雑・注意</b><small>多遺伝子・環境・浸透率などが関与</small></div>
+  <div><span class="legend-dot myth"></span><b>単純優性は不適切</b><small>古典的教材・俗説の単純化に注意</small></div>
+</div>
+<div class="trait-list reveal" id="traitAtlasList"></div>
  </div>
 </section>
 
@@ -527,7 +697,8 @@ footer .footgrid{gap:42px}
  <div class="wrap">
   <div class="section-head reveal"><div class="secnum">16 / COMMUNITY FORUM</div><div><h2>HATOKURA 国民遺伝学掲示板</h2><p class="intro">質問、学習メモ、資料共有、誤解の訂正、遺伝学トークに使える高機能掲示板です。検索、カテゴリ、タグ、いいね、ブックマーク、返信、編集、削除、通報、ピン留め、JSONバックアップに対応します。</p></div></div>
 
-  <div class="forum-shell reveal">
+  <div class="forum-local-note reveal"><b>掲示板データについて</b><span>この単体HTML版では、投稿・返信・プロフィールはこのブラウザ内に保存されます。公開型の共有掲示板にする場合は、別途データベース接続が必要です。</span></div>
+<div class="forum-shell reveal">
    <div class="forum-head"><div><b>HATOKURA NATIONAL GENETICS COMMUNITY</b><div style="font-size:9px;color:#718599;margin-top:3px">DOMINANT TRAITS / HUMAN GENETICS / Q&A</div></div><div class="online">● COMMUNITY READY</div></div>
    <div class="forum-grid">
     <aside class="fside">
@@ -585,7 +756,12 @@ footer .footgrid{gap:42px}
  </div>
 </footer>
 
-<button class="totop" id="totop">↑</button>
+<div class="float-nav" aria-label="クイック移動">
+      <a href="#top" title="ページ上部">↑</a>
+      <a href="#traitAtlas" title="109項目一覧">109</a>
+      <a href="#forum" title="掲示板">掲</a>
+    </div>
+    <button class="totop" id="totop" aria-label="ページ上部へ戻る">↑</button>
 
 <div class="modal" id="searchModal"><div class="modalbox"><button class="close" data-close="searchModal">×</button><div class="eyebrow">KNOWLEDGE SEARCH</div><h3 style="color:#e4cf8d">知識ベース検索</h3><input id="globalSearch" placeholder="例：浸透率、ABO、耳たぶ、多因子"><div id="globalResults"></div></div></div>
 
@@ -740,14 +916,15 @@ footer .footgrid{gap:42px}
    box.innerHTML='';
    const labels={est:'比較的確立',complex:'複雑・注意',myth:'単純優性は不適切'};
    const filtered=traitAtlas.filter(t=>(f==='all'||t.level===f)&&([t.name,t.gene,t.model,t.note].join(' ').toLowerCase().includes(q))); if($('#traitCount'))$('#traitCount').textContent=filtered.length+'件を表示中 / 全'+traitAtlas.length+'件'; filtered.forEach(t=>{
-      const d=document.createElement('div');d.className='trait-row';
-      d.innerHTML='<div><h4>'+esc(t.name)+'</h4><p>'+esc(t.model)+'</p></div><div class="gene">'+esc(t.gene)+'</div><div><p>'+esc(t.note)+'</p></div><div><span class="flag '+t.level+'">'+labels[t.level]+'</span></div>';
+      const d=document.createElement('div');d.className='trait-row';d.dataset.level=t.level;
+      const num=String(traitAtlas.indexOf(t)+1).padStart(3,'0');
+      d.innerHTML='<div><h4><span class="trait-index">'+num+'</span>'+esc(t.name)+'</h4><p>'+esc(t.model)+'</p></div><div class="gene">'+esc(t.gene)+'</div><div><p>'+esc(t.note)+'</p></div><div><span class="flag '+t.level+'">'+labels[t.level]+'</span></div>';
       box.appendChild(d)
    });
    if(!box.children.length)box.innerHTML='<div class="empty">該当する形質がありません。</div>'
  }
  window.resetTraits=()=>{$('#traitSearch').value='';$('#traitFilter').value='all';renderTraitAtlas()};
- setTimeout(()=>{if($('#traitSearch')){$('#traitSearch').oninput=renderTraitAtlas;$('#traitFilter').onchange=renderTraitAtlas;renderTraitAtlas()}},0);
+ setTimeout(()=>{if($('#traitSearch')){$('#traitSearch').value='';$('#traitFilter').value='all';$('#traitSearch').oninput=renderTraitAtlas;$('#traitFilter').onchange=renderTraitAtlas;renderTraitAtlas()}},0);
 
  // Hardy-Weinberg educational calculator
  window.calcHW=()=>{
@@ -869,6 +1046,20 @@ footer .footgrid{gap:42px}
  window.exportBackup=()=>{$('#backupText').value=JSON.stringify({version:1,profile,posts},null,2)};
  window.importBackup=()=>{try{let d=JSON.parse($('#backupText').value);if(!Array.isArray(d.posts))throw new Error();posts=d.posts;profile=d.profile||profile;$('#forumName').value=profile.name||'';$('#forumBio').value=profile.bio||'';saveForum();renderForum();alert('復元しました。')}catch(e){alert('JSON形式を確認してください。')}};
  window.downloadBackup=()=>{exportBackup();let blob=new Blob([$('#backupText').value],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hatokura_forum_backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+
+ 
+ // Active navigation highlighting
+ const sectionLinks=[...document.querySelectorAll('#nav a[href^="#"]')];
+ const sectionMap=sectionLinks.map(a=>({a,el:document.querySelector(a.getAttribute('href'))})).filter(x=>x.el);
+ const navObserver=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+     if(entry.isIntersecting){
+       sectionLinks.forEach(a=>a.classList.remove('active'));
+       const hit=sectionMap.find(x=>x.el===entry.target); if(hit)hit.a.classList.add('active');
+     }
+   })
+ },{rootMargin:'-24% 0px -66% 0px',threshold:0});
+ sectionMap.forEach(x=>navObserver.observe(x.el));
 
  runPunnett();runABO();renderGlossary();renderForum();setTimeout(()=>{if(window.calcHW)calcHW();},0);
 })();
