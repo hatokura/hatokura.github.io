@@ -110,7 +110,7 @@ footer .footgrid{gap:42px}
 .toc a:hover{transform:translateY(-2px);border-color:rgba(212,180,92,.4);background:#102238}
 .toc small{color:#7a8fa2;font-size:9px;letter-spacing:.12em}.toc b{color:#e6d18f;font-size:15px}.toc span{color:#8396a8;font-size:10px}
 .mega-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:22px}.mega-stat{border:1px solid var(--line);background:#091725;padding:15px}.mega-stat strong{display:block;color:#ead48b;font-size:22px}.mega-stat span{font-size:9px;color:#758a9d}
-.trait-tools{display:grid;grid-template-columns:1fr auto auto;gap:8px;margin-bottom:14px}.trait-tools input,.trait-tools select{background:#06101b;border:1px solid #26394d;color:#e8eef5;padding:10px}
+
 .trait-list{display:grid;gap:12px}.trait-row{border:1px solid var(--line);background:#091725;padding:15px;display:grid;grid-template-columns:1.15fr .7fr 1.6fr .6fr;gap:14px;align-items:start}
 .trait-row h4{margin:0;color:#e2cd89}.trait-row p{margin:3px 0 0;color:#8295a7;font-size:10px}.trait-row .gene{color:#81bfd7;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px}
 .flag{display:inline-block;padding:3px 7px;border:1px solid var(--line);font-size:9px;white-space:nowrap}.flag.est{color:#7fd2a6;border-color:rgba(118,208,164,.3)}.flag.complex{color:#ddb667;border-color:rgba(221,169,94,.3)}.flag.myth{color:#d88888;border-color:rgba(215,125,125,.3)}
@@ -121,7 +121,7 @@ footer .footgrid{gap:42px}
 .share-strip{display:flex;gap:8px;flex-wrap:wrap;padding:18px;border:1px solid var(--line);background:#091725;align-items:center;justify-content:space-between}.share-strip strong{color:#e2cd89}.share-actions{display:flex;gap:7px;flex-wrap:wrap}
 .breadcrumbs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}.crumb{font-size:9px;color:#7b8fa2;border:1px solid var(--line);padding:5px 8px;background:#081522}
 @media(max-width:1100px){.toc{grid-template-columns:repeat(2,1fr)}.mega-stats{grid-template-columns:repeat(3,1fr)}.trait-row{grid-template-columns:1fr 1fr}.family-grid{grid-template-columns:1fr 1fr}.hwbox{grid-template-columns:1fr}}
-@media(max-width:760px){.toc,.mega-stats,.family-grid{grid-template-columns:1fr}.trait-tools{grid-template-columns:1fr}.trait-row{grid-template-columns:1fr}.share-strip{align-items:flex-start;flex-direction:column}.freqbar{grid-template-columns:60px 1fr 60px}}
+@media(max-width:760px){.toc,.mega-stats,.family-grid{grid-template-columns:1fr}.trait-row{grid-template-columns:1fr}.share-strip{align-items:flex-start;flex-direction:column}.freqbar{grid-template-columns:60px 1fr 60px}}
 @media print{
  header,.utility,.totop,#forum,.actions,.share-strip,.icon,.fside,.fright{display:none!important}
  body{background:white!important;color:#111!important}.section{padding:35px 0!important;border-color:#ddd!important}.card,.side,.labbox,.term,.source,.trait-row,.pedigree-card,.calc-panel,.faq-item{background:white!important;color:#111!important;border-color:#ccc!important;box-shadow:none!important}
@@ -293,16 +293,7 @@ footer{margin-top:0}
 }
 
 
-.atlas-initial-note{
-  margin:0 0 14px;
-  padding:10px 13px;
-  border:1px solid rgba(118,208,164,.22);
-  border-radius:10px;
-  background:rgba(118,208,164,.035);
-  color:#9acdb7;
-  font-size:10px;
-  letter-spacing:.03em;
-}
+
 #traitAtlasList{opacity:1!important;transform:none!important}
 
 </style>
@@ -565,10 +556,13 @@ footer{margin-top:0}
 </section>
 <section class="section" id="traitAtlas">
  <div class="wrap">
-  <div class="section-head reveal"><div class="secnum">09 / TRAIT ATLAS</div><div><h2>優性形質一覧・人間形質アトラス 109</h2><p class="intro">「優性形質一覧」として検索されやすい項目を最大限まで増量しました。確立した遺伝例、比較的単純な例、複雑形質、古典的俗説を分けて掲載し、昔の教材表現をそのまま事実扱いしない構成です。</p></div></div>
-  <div class="trait-tools reveal"><input id="traitSearch" placeholder="形質を検索：耳たぶ、ABO、身長、えくぼ、疾患名…"><select id="traitFilter"><option value="all" selected>すべて（109項目すべて表示）</option><option value="est">比較的確立</option><option value="complex">複雑・単純化注意</option><option value="myth">単純優性扱いは不適切</option></select><button class="mini" onclick="resetTraits()">リセット</button></div><div class="callout reveal" style="margin-bottom:14px"><b>収録数：</b><span id="traitCount">全109件を表示中</span><span style="margin-top:6px">ページを開いた時点で109項目をすべて表示しています。検索・分類フィルターを使うと必要な項目だけに絞り込めます。</span></div>
+  <div class="section-head reveal"><div class="secnum">09 / TRAIT ATLAS</div><div><h2>優性形質一覧・人間形質アトラス 109</h2><p class="intro">優性形質として語られる項目を109件収録し、全件を固定式で一覧表示しています。確立した遺伝例、比較的単純な例、複雑形質、古典的俗説を分けて掲載し、昔の教材表現をそのまま事実扱いしない構成です。</p></div></div>
+  <div class="callout reveal" style="margin-bottom:14px">
+      <b>優性形質アトラス：</b>
+      <span>全109項目を固定表示しています。検索・フィルター・絞り込み機能は使用せず、最初から最後まで一覧で閲覧できます。</span>
+    </div>
   
-<div class="atlas-initial-note">初期状態：優性形質アトラス109項目をすべて表示</div>
+
 <div class="atlas-legend reveal" aria-label="分類凡例">
   <div><span class="legend-dot est"></span><b>比較的確立</b><small>遺伝形式や関連が比較的明確</small></div>
   <div><span class="legend-dot complex"></span><b>複雑・注意</b><small>多遺伝子・環境・浸透率などが関与</small></div>
@@ -926,24 +920,17 @@ footer{margin-top:0}
   {"name": "HLA型", "gene": "HLA遺伝子群", "level": "complex", "model": "共優性的発現", "note": "多数の対立遺伝子を持つ高度多型系。"}
  ];
  function renderTraitAtlas(){
-   const q=($('#traitSearch')?.value||'').trim().toLowerCase(),f=$('#traitFilter')?.value||'all',box=$('#traitAtlasList');if(!box)return;
+   const box=$('#traitAtlasList'); if(!box)return;
    box.innerHTML='';
    const labels={est:'比較的確立',complex:'複雑・注意',myth:'単純優性は不適切'};
-   const filtered=traitAtlas.filter(t=>(f==='all'||t.level===f)&&([t.name,t.gene,t.model,t.note].join(' ').toLowerCase().includes(q))); if($('#traitCount'))$('#traitCount').textContent=filtered.length+'件を表示中 / 全'+traitAtlas.length+'件'; filtered.forEach(t=>{
-      const d=document.createElement('div');d.className='trait-row';d.dataset.level=t.level;
-      const num=String(traitAtlas.indexOf(t)+1).padStart(3,'0');
+   traitAtlas.forEach((t,index)=>{
+      const d=document.createElement('div');
+      d.className='trait-row';
+      d.dataset.level=t.level;
+      const num=String(index+1).padStart(3,'0');
       d.innerHTML='<div><h4><span class="trait-index">'+num+'</span>'+esc(t.name)+'</h4><p>'+esc(t.model)+'</p></div><div class="gene">'+esc(t.gene)+'</div><div><p>'+esc(t.note)+'</p></div><div><span class="flag '+t.level+'">'+labels[t.level]+'</span></div>';
-      box.appendChild(d)
+      box.appendChild(d);
    });
-   if(!box.children.length)box.innerHTML='<div class="empty">該当する形質がありません。</div>'
- }
- window.resetTraits=()=>{$('#traitSearch').value='';$('#traitFilter').value='all';renderTraitAtlas()};
- if($('#traitSearch')){
-   $('#traitSearch').value='';
-   $('#traitFilter').value='all';
-   $('#traitSearch').oninput=renderTraitAtlas;
-   $('#traitFilter').onchange=renderTraitAtlas;
-   renderTraitAtlas();
  }
 
  // Hardy-Weinberg educational calculator
@@ -1081,7 +1068,7 @@ footer{margin-top:0}
  },{rootMargin:'-24% 0px -66% 0px',threshold:0});
  sectionMap.forEach(x=>navObserver.observe(x.el));
 
- runPunnett();runABO();renderGlossary();renderForum();setTimeout(()=>{if(window.calcHW)calcHW();},0);
+ runPunnett();runABO();renderGlossary();renderForum();renderTraitAtlas();setTimeout(()=>{if(window.calcHW)calcHW();},0);
 })();
 </script>
 </body>
